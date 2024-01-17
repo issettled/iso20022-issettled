@@ -59,7 +59,7 @@ Directory [`/templates/en/`](https://github.com/issettled/iso20022-issettled/tre
 
 Examples of ISO 20022 XML messages and UML diagrams for key scenarios of Members’ interaction with IsSettled for clearing and settling international payments.
 
-> Detailed information is presented in the directory [`/examples/en/`](https://github.com/issettled/iso20022-issettled/tree/main/examples/en)
+> Detailed information is presented in the directory [`/examples/`](https://github.com/issettled/iso20022-issettled/tree/main/examples/)
 
 Directory [`/examples/en/settlement-method-TDSO/`](https://github.com/issettled/iso20022-issettled/tree/main/examples/en/settlement-method-TDSO) are examples of ISO 20022 XML messages and UML diagrams related to operations on settlement instruments of the [DSO](https://developer.issettled.com/docs-glossary/digital-settlement-obligation-dso) asset group.
 
@@ -172,7 +172,7 @@ More information about the IsSettled system is available on the [developer’s p
 
 # API IsSettled
 
-More information about the API IsSettled: [API Member](https://developer.issettled.com/api-main-member/reference) and [API Tokenizer](https://developer.issettled.com/api-main-member/reference).
+More information about the API IsSettled: [API Member](https://developer.issettled.com/api-main-member/reference) and [API Tokenizer](https://developer.issettled.com/api-tokenizer/reference).
 
 # License
 
