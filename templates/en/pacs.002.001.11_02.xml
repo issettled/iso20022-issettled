@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled" 
+    xmlns:ispsr="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <!-- Tokenizer Registered BIC Code -->
+                    <head:BICFI>{bicfi}</head:BICFI>
+                    <head:Othr>
+                        <!-- Tokenizer Identifier in IsSettled -->
+                        <head:Id>{tokenizer_identification}</head:Id>
+                        <!-- Issuer -->
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <!-- Messaging Point Identifier—constant -->
+                    <head:BICFI>ISSDINTL07X</head:BICFI>
+                    <head:Othr>
+                        <!-- IsSettled Identifier in the System—constant -->
+                        <head:Id>issettledmain</head:Id>
+                        <!-- Issuer -->
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <!-- Unique Business Message Identifier -->
+        <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+        <!-- Message Identifier—constant -->
+        <head:MsgDefIdr>pacs.002.001.11</head:MsgDefIdr>
+        <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+        <head:CreDt>{CreDt}</head:CreDt>
+    </AppHdr>
+    <FIToFIPmtStsRpt>
+        <ispsr:GrpHdr>
+            <!-- Unique Message Identifier -->
+            <ispsr:MsgId>{MsgId}</ispsr:MsgId>
+            <!-- Date and Time of Message Creation in ISO 8601 Format -->
+            <ispsr:CreDtTm>{CreDtTm}</ispsr:CreDtTm>
+            <!-- Instructing Agent-->
+            <ispsr:InstgAgt>
+                <ispsr:FinInstnId>
+                    <!-- Tokenizer Registered BIC Code -->
+                    <ispsr:BICFI>{bicfi}</ispsr:BICFI>
+                    <ispsr:Othr>
+                        <!-- Tokenizer Identifier in IsSettled -->
+                        <ispsr:Id>{account_identification}</ispsr:Id>
+                    </ispsr:Othr>
+                </ispsr:FinInstnId>
+            </ispsr:InstgAgt>
+            <!-- Instructed Agent -->
+            <ispsr:InstdAgt>
+                <ispsr:FinInstnId>
+                    <!-- Member Registered BIC Code -->
+                    <ispsr:BICFI>{bicfi}</ispsr:BICFI>
+                    <ispsr:Othr>
+                        <!-- Member Identifier in IsSettled -->
+                        <ispsr:Id>{account_identification}</ispsr:Id>
+                    </ispsr:Othr>
+                </ispsr:FinInstnId>
+            </ispsr:InstdAgt>
+        </ispsr:GrpHdr>
+        <ispsr:TxInfAndSts>
+            <!-- Unique Original Instruction Identifier -->
+            <ispsr:OrgnlInstrId>{OrgnlInstrId}</ispsr:OrgnlInstrId>
+            <!-- Unique Original End-To-End Identifier -->
+            <ispsr:OrgnlEndToEndId>{OrgnlEndToEndId}</ispsr:OrgnlEndToEndId>
+            <!-- Unique Original Transaction Identifier -->
+            <ispsr:OrgnlTxId>{OrgnlTxId}</ispsr:OrgnlTxId>
+            <!-- Transaction Status -->
+            <ispsr:TxSts>{TxSts}</ispsr:TxSts>
+            <!-- Information about the Fee Charged by the Tokenizer -->
+            <ispsr:ChrgsInf>
+                <!-- Three-letter Currency Code and Fee Amount -->
+                <ispsr:Amt Ccy="{Ccy}">{Amt}</ispsr:Amt>
+                <ispsr:Agt>
+                    <ispsr:FinInstnId>
+                        <!-- Tokenizer Registered BIC Code -->
+                        <ispsr:BICFI>{bicfi}</ispsr:BICFI>
+                        <ispsr:Othr>
+                            <!-- Tokenizer Identifier in IsSettled -->
+                            <ispsr:Id>{tokenizer_identification}</ispsr:Id>
+                        </ispsr:Othr>
+                    </ispsr:FinInstnId>
+                </ispsr:Agt>
+            </ispsr:ChrgsInf>
+            <ispsr:OrgnlTxRef>
+                <!-- Settlement Asset Identifier in IsSettled and the Original Interbank Settlement Amount -->
+                <ispsr:IntrBkSttlmAmt Ccy="{Ccy}">{IntrBkSttlmAmt}</ispsr:IntrBkSttlmAmt>
+            </ispsr:OrgnlTxRef>
+            <!-- Issuer Information --> 
+            <ispsr:SplmtryData>
+                <!-- XML Tag—constant -->
+                <ispsr:PlcAndNm>/Document/FIToFIPmtStsRpt/TxInfAndSts/TknzrId</ispsr:PlcAndNm>
+                <ispsr:Envlp>
+                    <!-- Tokenizer Identifier in IsSettled -->
+                    <ispsr:Id>{tokenizer_identification}</ispsr:Id>
+                </ispsr:Envlp>
+            </ispsr:SplmtryData>
+            <!-- Digital Account Information -->
+            <ispsr:SplmtryData>
+                <!-- XML Tag—constant -->
+                <ispsr:PlcAndNm>/Document/FIToFIPmtStsRpt/TxInfAndSts/SttlmDgtlAcctId</ispsr:PlcAndNm>
+                <ispsr:Envlp>
+                    <!-- Account Address for Transfer in the Distributed Ledger -->
+                    <ispsr:Id>{distributed_ledger_account_address}</ispsr:Id>
+                </ispsr:Envlp>
+            </ispsr:SplmtryData>
+            <!-- Payment Reference Number Information --> 
+            <ispsr:SplmtryData>
+                <!-- XML Tag—constant -->
+                <ispsr:PlcAndNm>/Document/FIToFIPmtStsRpt/TxInfAndSts/PmtRefNb</ispsr:PlcAndNm>
+                <ispsr:Envlp>
+                    <!-- Unique Payment Identifier -->
+                    <ispsr:Id>{Id}</ispsr:Id>
+                </ispsr:Envlp>
+            </ispsr:SplmtryData>
+        </ispsr:TxInfAndSts>
+    </FIToFIPmtStsRpt>
+</Message>

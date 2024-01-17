@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled" 
+    xmlns:iscct="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.09" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in IsSettled -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>ISSDINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- IsSettled Identifier in the System—constant -->
+                  <head:Id>issettledmain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>pacs.008.001.09</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+    <FIToFICstmrCdtTrf>
+        <iscct:GrpHdr>
+            <!-- Unique Message Identifier -->
+            <iscct:MsgId>{MsgId}</iscct:MsgId>
+            <!-- Date and Time of Message Creation in ISO 8601 Format -->
+            <iscct:CreDtTm>{CreDtTm}</iscct:CreDtTm>
+            <!-- Number of Transactions—constant -->
+            <iscct:NbOfTxs>1</iscct:NbOfTxs>
+            <iscct:SttlmInf>
+                <!-- Settlement Method Identifier -->
+                <iscct:SttlmMtd>{interbank_settlement_method}</iscct:SttlmMtd>
+                <iscct:SttlmAcct>
+                    <iscct:Id>
+                        <iscct:Othr>
+                            <!-- SFI Member Identifier in IsSettled -->
+                            <iscct:Id>{member_identification}</iscct:Id>
+                        </iscct:Othr>
+                    </iscct:Id>
+                    <!-- SFI Member Digital Account Identifier in IsSettled -->
+                    <iscct:Nm>{account_identification}</iscct:Nm>
+                </iscct:SttlmAcct>
+            </iscct:SttlmInf>
+            <iscct:PmtTpInf>
+                <iscct:SvcLvl>
+                    <!-- Asset Issuer Identifier in IsSettled -->
+                    <iscct:Prtry>{asset_issuer_identification}</iscct:Prtry>
+                </iscct:SvcLvl>
+            </iscct:PmtTpInf>
+            <!-- Instructing Agent -->
+            <iscct:InstgAgt>
+                <iscct:FinInstnId>
+                    <!-- SFI Member Registered BIC code -->
+                    <iscct:BICFI>{bicfi}</iscct:BICFI>
+                    <iscct:Othr>
+                        <!-- SFI Member Identifier in IsSettled -->
+                        <iscct:Id>{member_identification}</iscct:Id>
+                    </iscct:Othr>
+                </iscct:FinInstnId>
+            </iscct:InstgAgt>
+            <!-- Instructed Agent -->
+            <iscct:InstdAgt>
+                <iscct:FinInstnId>
+                    <!-- BFI Member Registered BIC code -->
+                    <iscct:BICFI>{bicfi}</iscct:BICFI>
+                    <iscct:Othr>
+                        <!-- BFI Member Identifier in IsSettled -->
+                        <iscct:Id>{member_identification}</iscct:Id>
+                    </iscct:Othr>
+                </iscct:FinInstnId>
+            </iscct:InstdAgt>
+        </iscct:GrpHdr>
+        <iscct:CdtTrfTxInf>
+            <!-- Credit Transfer Identification -->
+            <iscct:PmtId>
+                <!-- Unique Instruction Identifier -->
+                <iscct:InstrId>{InstrId}</iscct:InstrId>
+                <!-- Unique End-To-End Identifier -->
+                <iscct:EndToEndId>{EndToEndId}</iscct:EndToEndId>
+                <!-- Unique Transaction Identifier -->
+                <iscct:TxId>{TxId}</iscct:TxId>
+            </iscct:PmtId>
+            <!-- Settlement Asset Identifier in IsSettled and the Interbank Settlement Amount -->
+            <iscct:IntrBkSttlmAmt Ccy="{asset_code_identification}">{interbank_settlement_amount}</iscct:IntrBkSttlmAmt>
+            <!-- Interbank Settlement Date -->
+            <iscct:IntrBkSttlmDt>{IntrBkSttlmDt}</iscct:IntrBkSttlmDt>
+            <!-- Instructed Transaction Currency and Amount -->
+            <iscct:InstdAmt Ccy="{instructed_currency_code}">{instructed_amount}</iscct:InstdAmt> 
+            <!-- Exchange Rate -->
+            <iscct:XchgRate>{foreign_exchange_rate}</iscct:XchgRate>
+            <!-- The Party that Pays the Fees -->
+            <iscct:ChrgBr>{ChrgBr}</iscct:ChrgBr>
+            <iscct:ChrgsInf>
+                <!-- Settlement Asset Identifier in IsSettled and Fee Amount -->
+                <iscct:Amt Ccy="{asset_code_identification}">{fee_amount}</iscct:Amt>
+                <iscct:Agt>
+                    <iscct:FinInstnId>
+                        <!-- Member’s Registered BIC code who Charges a Fee -->
+                        <iscct:BICFI>{bicfi}</iscct:BICFI>
+                        <iscct:Othr>
+                            <!-- Member Identifier in IsSettled, who Charges a Fee -->
+                            <iscct:Id>{member_identification}</iscct:Id>
+                        </iscct:Othr>
+                    </iscct:FinInstnId>
+                </iscct:Agt>
+            </iscct:ChrgsInf>
+            <!-- Payer -->
+            <iscct:Dbtr>
+                <!-- Payer’s Name -->
+                <iscct:Nm>{Nm}</iscct:Nm>
+                <!-- Mailing Address -->
+                <iscct:PstlAdr>
+                    <!-- Street Name -->
+                    <iscct:StrtNm>{StrtNm}</iscct:StrtNm>
+                    <!-- Building Number -->
+                    <iscct:BldgNb>{BldgNb}</iscct:BldgNb>
+                    <!-- Postcode -->
+                    <iscct:PstCd>{PstCd}</iscct:PstCd>
+                    <!-- Town Name -->
+                    <iscct:TwnNm>{TwnNm}</iscct:TwnNm>
+                    <!-- Country Name -->
+                    <iscct:Ctry>{Ctry}</iscct:Ctry>
+                </iscct:PstlAdr>
+            </iscct:Dbtr>
+            <!-- Payer’s Bank -->
+            <iscct:DbtrAgt>
+                <iscct:FinInstnId>
+                    <!-- SFI Member Registered BIC code -->
+                    <iscct:BICFI>{bicfi}</iscct:BICFI>
+                    <iscct:Othr>
+                        <!-- SFI Member Identifier in IsSettled -->
+                       <iscct:Id>{member_identification}</iscct:Id>
+                    </iscct:Othr>
+                </iscct:FinInstnId>
+            </iscct:DbtrAgt>
+            <!-- Beneficiary’s Bank -->
+            <iscct:CdtrAgt>
+                <iscct:FinInstnId>
+                    <!-- BFI Member Registered BIC code -->
+                    <iscct:BICFI>{bicfi}</iscct:BICFI>
+                    <iscct:Othr>
+                         <!-- BFI Member Identifier in IsSettled -->
+                        <iscct:Id>{member_identification}</iscct:Id>
+                    </iscct:Othr>
+                </iscct:FinInstnId>
+            </iscct:CdtrAgt>
+            <!-- Beneficiary -->
+            <iscct:Cdtr>
+                <!-- Beneficiary’s Name -->
+                <iscct:Nm>{Nm}</iscct:Nm>
+                <!-- Mailing Address-->
+                <iscct:PstlAdr>
+                    <!-- Street Name -->
+                    <iscct:StrtNm>{StrtNm}</iscct:StrtNm>
+                    <!-- Building Number -->
+                    <iscct:BldgNb>{BldgNb}</iscct:BldgNb>
+                    <!-- Postcode -->
+                    <iscct:PstCd>{PstCd}</iscct:PstCd>
+                    <!-- Town Name -->
+                    <iscct:TwnNm>{TwnNm}</iscct:TwnNm>
+                    <!-- Country Name -->
+                    <iscct:Ctry>{Ctry}</iscct:Ctry>
+                    <!-- Complete Mailing Address -->
+                    <iscct:AdrLine>{AdrLine}</iscct:AdrLine>
+                </iscct:PstlAdr>
+            </iscct:Cdtr>
+            <!-- Payment Point Information -->
+            <iscct:SplmtryData>
+                <!-- constant -->
+                <iscct:PlcAndNm>payment point identification</iscct:PlcAndNm>
+                <iscct:Envlp>
+                    <!-- Payment Point Identifier in IsSettled -->
+                    <iscct:Id>{payment_point_uuid}</iscct:Id>
+                </iscct:Envlp>
+            </iscct:SplmtryData>
+            <!-- Charges Information -->
+            <iscct:SplmtryData>
+                <!-- constant -->
+                <iscct:PlcAndNm>charge response identification</iscct:PlcAndNm>
+                <iscct:Envlp>
+                    <!-- Unique Identifier the Payment Charges Calculation Request Response -->
+                    <iscct:Id>{request_uuid}</iscct:Id>
+                </iscct:Envlp>
+            </iscct:SplmtryData>
+        </iscct:CdtTrfTxInf>
+    </FIToFICstmrCdtTrf>
+</Message>

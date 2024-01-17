@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled"
+    xmlns:ispcr="urn:iso:std:iso:20022:tech:xsd:camt.056.001.10"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>BLUEUSNY001</head:BICFI>
+                    <head:Othr>
+                        <head:Id>bluebank</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>ISSDINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>issettledmain</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BISSD20220718BLUEUSNY001B0736701521</head:BizMsgIdr>
+        <head:MsgDefIdr>camt.056.001.10</head:MsgDefIdr>
+        <head:CreDt>2022-07-18T13:28:21Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">KZoeFGMmOsE8M2XRfOH3Jca6nkR81e87QU96FeXixUo=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">Vf4C2iBoTS2nSMfSNhqn+M6kcwFXFLnCk0cySKkD0hHzX9upVKLuYLwiO4zA6e6ftXjo68PFPK1WKXD1dakoBw==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TBOJMA3GPIL6XDM3PJIFLXWOLWWVACTRWV2GHMB3HZ5PS7LLZLSGH5GR</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <FIToFIPmtCxlReq>
+        <ispcr:Assgnmt>
+            <ispcr:Id>20220718USDDSA0362514046BLUEUSNY001</ispcr:Id>
+            <ispcr:Assgnr>
+                <ispcr:Agt>
+                    <ispcr:FinInstnId>
+                        <ispcr:BICFI>BLUEUSNY001</ispcr:BICFI>
+                        <ispcr:Othr>
+                            <ispcr:Id>bluebank</ispcr:Id>
+                        </ispcr:Othr>
+                    </ispcr:FinInstnId>
+                </ispcr:Agt>
+            </ispcr:Assgnr>
+            <ispcr:Assgne>
+                <ispcr:Agt>
+                    <ispcr:FinInstnId>
+                        <ispcr:BICFI>GRENCHZZ002</ispcr:BICFI>
+                        <ispcr:Othr>
+                            <ispcr:Id>greenbank</ispcr:Id>
+                        </ispcr:Othr>
+                    </ispcr:FinInstnId>
+                </ispcr:Agt>
+            </ispcr:Assgne>
+            <ispcr:CreDtTm>2022-07-18T13:28:21</ispcr:CreDtTm>
+        </ispcr:Assgnmt>
+        <ispcr:Case>
+            <ispcr:Id>20220718USDDSA0362514046BLUEUSNY001</ispcr:Id>
+            <ispcr:Cretr>
+                <ispcr:Agt>
+                    <ispcr:FinInstnId>
+                        <ispcr:BICFI>BLUEUSNY001</ispcr:BICFI>
+                        <ispcr:Othr>
+                            <ispcr:Id>bluebank</ispcr:Id>
+                        </ispcr:Othr>
+                    </ispcr:FinInstnId>
+                </ispcr:Agt>
+            </ispcr:Cretr>
+        </ispcr:Case>
+        <ispcr:Undrlyg>
+            <ispcr:OrgnlGrpInfAndCxl>
+                <ispcr:OrgnlMsgId>20220718USDDSA9153934686BLUEUSNY001</ispcr:OrgnlMsgId>
+                <ispcr:OrgnlMsgNmId>pacs.008.001.09</ispcr:OrgnlMsgNmId>
+            </ispcr:OrgnlGrpInfAndCxl>
+            <ispcr:TxInf>
+                <ispcr:OrgnlInstrId>USDDSA20220718BLUEUSNY001B382477953</ispcr:OrgnlInstrId>
+                <ispcr:OrgnlEndToEndId>8f01d8db87fa4ef888e223a6f5eef3aa</ispcr:OrgnlEndToEndId>
+                <ispcr:OrgnlTxId>455d2a5faecb4167ad8c1d985588e8e2</ispcr:OrgnlTxId>
+                <ispcr:OrgnlIntrBkSttlmAmt Ccy="USD">125000</ispcr:OrgnlIntrBkSttlmAmt>
+                <ispcr:OrgnlIntrBkSttlmDt>2022-07-18</ispcr:OrgnlIntrBkSttlmDt>
+                <ispcr:CxlRsnInf>
+                    <ispcr:Rsn>
+                        <ispcr:Cd>AM09</ispcr:Cd>
+                    </ispcr:Rsn>
+                </ispcr:CxlRsnInf>
+                <ispcr:OrgnlTxRef>
+                    <ispcr:SttlmInf>
+                        <ispcr:SttlmMtd>TDSA</ispcr:SttlmMtd>
+                        <ispcr:SttlmAcct>
+                            <ispcr:Id>
+                                <ispcr:Othr>
+                                    <ispcr:Id>bluebank</ispcr:Id>
+                                </ispcr:Othr>
+                            </ispcr:Id>
+                            <ispcr:Nm>main</ispcr:Nm>
+                        </ispcr:SttlmAcct>
+                    </ispcr:SttlmInf>
+                </ispcr:OrgnlTxRef>
+            </ispcr:TxInf>
+        </ispcr:Undrlyg>
+    </FIToFIPmtCxlReq>
+</Message>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled" 
+    xmlns:istsn="urn:iso:std:iso:20022:tech:xsd:issd.002.001.01" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in IsSettled -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>ISSDINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- IsSettled Identifier in the System—constant -->
+                  <head:Id>issettledmain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>issd.002.001.01</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+    <TxSttlmNtfctn>
+        <istsn:GrpHdr>
+            <!-- Unique Message Identifier -->
+            <istsn:MsgId>{MsgId}</istsn:MsgId>
+            <!-- Date and Time of Message Creation in ISO 8601 Format -->
+            <istsn:CreDtTm>{CreDtTm}</istsn:CreDtTm>
+            <!-- Number of Transactions—constant -->
+            <istsn:NbOfTxs>1</istsn:NbOfTxs>
+            <istsn:SttlmInf>
+                <!-- Settlement Method Identifier -->
+                <istsn:SttlmMtd>{interbank_settlement_method}</istsn:SttlmMtd>
+                <istsn:SttlmAcct>
+                    <istsn:Id>
+                        <istsn:Othr>
+                            <!-- SFI Member Identifier in IsSettled -->
+                            <istsn:Id>{member_identification}</istsn:Id>
+                        </istsn:Othr>
+                    </istsn:Id>
+                    <!-- SFI Member Digital Account Identifier in IsSettled -->
+                    <istsn:Nm>{account_identification}</istsn:Nm>
+                </istsn:SttlmAcct>
+            </istsn:SttlmInf>
+            <istsn:PmtTpInf>
+                <istsn:SvcLvl>
+                    <!-- SFI Member Identifier in IsSettled -->
+                    <istsn:Prtry>{member_identification}</istsn:Prtry>
+                </istsn:SvcLvl>
+            </istsn:PmtTpInf>
+            <!-- Instructing Agent -->
+            <istsn:InstgAgt>
+                <istsn:FinInstnId>
+                    <!-- SFI Member Registered BIC code -->
+                    <istsn:BICFI>{bicfi}</istsn:BICFI>
+                    <istsn:Othr>
+                        <!-- SFI Member Identifier in IsSettled -->
+                        <istsn:Id>{member_identification}</istsn:Id>
+                    </istsn:Othr>
+                </istsn:FinInstnId>
+            </istsn:InstgAgt>
+             <!--Instructed Agent -->
+            <istsn:InstdAgt>
+                <istsn:FinInstnId>
+                    <!-- BFI Member Registered BIC code -->
+                    <istsn:BICFI>{bicfi}</istsn:BICFI>
+                    <istsn:Othr>
+                        <!-- BFI Member Identifier in IsSettled -->
+                        <istsn:Id>{member_identification}</istsn:Id>
+                    </istsn:Othr>
+                </istsn:FinInstnId>
+            </istsn:InstdAgt>
+        </istsn:GrpHdr>
+        <istsn:TxSttlmInf>
+            <istsn:OrgnlGrpInf>
+                <!-- Unique Original Message Identifier -->
+                <istsn:OrgnlMsgId>{OrgnlMsgId}</istsn:OrgnlMsgId>
+                <!-- Original Message Name Identifier -->
+                <istsn:OrgnlMsgNmId>{OrgnlMsgNmId}</istsn:OrgnlMsgNmId>
+                <!-- Date and Time of Original Message Creation in ISO 8601 Format -->
+                <istsn:OrgnlCreDtTm>{OrgnlCreDtTm}</istsn:OrgnlCreDtTm>
+            </istsn:OrgnlGrpInf>
+            <istsn:TxInf>
+                <!-- Unique Settlement Transaction Identifier -->
+                <istsn:SttlmId>{SttlmId}</istsn:SttlmId>
+                <!-- Unique Original Instruction Identifier -->
+                <istsn:OrgnlInstrId>{OrgnlInstrId}</istsn:OrgnlInstrId>
+                <!-- Unique Original End-To-End Identifier -->
+                <istsn:OrgnlEndToEndId>{OrgnlEndToEndId}</istsn:OrgnlEndToEndId>
+                <!-- Unique Original Transaction Identifier -->
+                <istsn:OrgnlTxId>{OrgnlTxId}</istsn:OrgnlTxId>
+                <!-- Actual Interbank Settlement Amount and Three-letter Currency Code -->
+                <istsn:ActlSttlmAmt Ccy="{Ccy}">{ActlSttlmAmt}</istsn:ActlSttlmAmt>
+                <istsn:OrgnlTxRef>
+                    <!-- Settlement Asset Identifier in IsSettled and the Original Interbank Settlement Amount -->
+                    <istsn:IntrBkSttlmAmt Ccy="{asset_code_identification}">{interbank_settlement_amount}</istsn:IntrBkSttlmAmt>
+                    <!-- Payer -->
+                    <istsn:Dbtr>
+                        <!-- Payer’s Name -->
+                        <istsn:Nm>{Nm}</istsn:Nm>
+                        <!-- Mailing Address -->
+                        <istsn:PstlAdr>
+                            <!-- Street Name -->
+                            <istsn:StrtNm>{StrtNm}</istsn:StrtNm>
+                            <!-- Building Number -->
+                            <istsn:BldgNb>{BldgNb}</istsn:BldgNb>
+                            <!-- Postcode -->
+                            <istsn:PstCd>{PstCd}</istsn:PstCd>
+                            <!-- Town Name -->
+                            <istsn:TwnNm>{TwnNm}</istsn:TwnNm>
+                            <!-- Country Name -->
+                            <istsn:Ctry>{Ctry}</istsn:Ctry>
+                        </istsn:PstlAdr>
+                    </istsn:Dbtr>
+                    <!-- Beneficiary -->
+                    <istsn:Cdtr>
+                        <!-- Beneficiary’s Name -->
+                        <istsn:Nm>{Nm}</istsn:Nm>
+                        <!-- Mailing Address -->
+                        <istsn:PstlAdr>
+                            <!-- Street Name -->
+                            <istsn:StrtNm>{StrtNm}</istsn:StrtNm>
+                            <!-- Building Number -->
+                            <istsn:BldgNb>{BldgNb}</istsn:BldgNb>
+                            <!-- Postcode -->
+                            <istsn:PstCd>{PstCd}</istsn:PstCd>
+                            <!-- Town Name -->
+                            <istsn:TwnNm>{TwnNm}</istsn:TwnNm>
+                            <!-- Country Name -->
+                            <istsn:Ctry>{Ctry}</istsn:Ctry>
+                        </istsn:PstlAdr>
+                    </istsn:Cdtr>
+                </istsn:OrgnlTxRef>
+            </istsn:TxInf>
+        </istsn:TxSttlmInf>
+    </TxSttlmNtfctn>
+</Message>

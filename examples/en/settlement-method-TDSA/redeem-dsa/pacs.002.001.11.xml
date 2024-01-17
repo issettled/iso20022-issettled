@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled"
+    xmlns:ispsr="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>CBFCCHZZ003</head:BICFI>
+                    <head:Othr>
+                        <head:Id>centralbank</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>ISSDINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>issettledmain</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BISSD20220720CBFCCHZZ003B3144867881</head:BizMsgIdr>
+        <head:MsgDefIdr>pacs.002.001.11</head:MsgDefIdr>
+        <head:CreDt>2022-07-20T10:14:34Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">j7G60bIK6cdlf1ABXi1uy6kjv0BriCVRWlfHaylaCIo=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">NLkMaqPU4dH6uDvCR/5z/V0m0gEih0NOwVGMPqYluP9f863JhTIKLR4l3K0inUYYGSx+40ty4o/scVJHLwHCAA==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TCED4IRUV3N52DTDBBPGL4N5JRKEZTJBB73KWBGIBOQSQZFAYV7KYFCW</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <FIToFIPmtStsRpt>
+        <ispsr:GrpHdr>
+            <ispsr:MsgId>20220720CHFDSA6064961508CBFCCHZZ003</ispsr:MsgId>
+            <ispsr:CreDtTm>2022-07-20T10:14:34</ispsr:CreDtTm>
+            <ispsr:InstgAgt>
+                <ispsr:FinInstnId>
+                    <ispsr:BICFI>CBFCCHZZ003</ispsr:BICFI>
+                    <ispsr:Othr>
+                        <ispsr:Id>centralbank</ispsr:Id>
+                    </ispsr:Othr>
+                </ispsr:FinInstnId>
+            </ispsr:InstgAgt>
+            <ispsr:InstdAgt>
+                <ispsr:FinInstnId>
+                    <ispsr:BICFI>GRENCHZZ002</ispsr:BICFI>
+                    <ispsr:Othr>
+                        <ispsr:Id>greenbank</ispsr:Id>
+                    </ispsr:Othr>
+                </ispsr:FinInstnId>
+            </ispsr:InstdAgt>
+        </ispsr:GrpHdr>
+        <ispsr:TxInfAndSts>
+            <ispsr:OrgnlInstrId>CHFDSA20220720GRENCHZZ002B380494409</ispsr:OrgnlInstrId>
+            <ispsr:OrgnlEndToEndId>b39e871cc42446ada613be9d9d9a344f</ispsr:OrgnlEndToEndId>
+            <ispsr:OrgnlTxId>b153a1afed3945d298a386283240835b</ispsr:OrgnlTxId>
+            <ispsr:TxSts>ACTC</ispsr:TxSts>
+            <ispsr:ChrgsInf>
+                <ispsr:Amt Ccy="CHF">150</ispsr:Amt>
+                <ispsr:Agt>
+                    <ispsr:FinInstnId>
+                        <ispsr:BICFI>CBFCCHZZ003</ispsr:BICFI>
+                        <ispsr:Othr>
+                            <ispsr:Id>centralbank</ispsr:Id>
+                        </ispsr:Othr>
+                    </ispsr:FinInstnId>
+                </ispsr:Agt>
+            </ispsr:ChrgsInf>
+            <ispsr:OrgnlTxRef>
+                <ispsr:IntrBkSttlmAmt Ccy="CHF">150000</ispsr:IntrBkSttlmAmt>
+            </ispsr:OrgnlTxRef>
+            <ispsr:SplmtryData>
+                <ispsr:PlcAndNm>/Document/FIToFIPmtStsRpt/TxInfAndSts/TknzrId</ispsr:PlcAndNm>
+                <ispsr:Envlp>
+                    <ispsr:Id>centralbank</ispsr:Id>
+                </ispsr:Envlp>
+            </ispsr:SplmtryData>
+            <ispsr:SplmtryData>
+                <ispsr:PlcAndNm>/Document/FIToFIPmtStsRpt/TxInfAndSts/SttlmDgtlAcctId</ispsr:PlcAndNm>
+                <ispsr:Envlp>
+                    <ispsr:Id>TCED4IRUV3N52DTDBBPGL4N5JRKEZTJBB73KWBGIBOQSQZFAYV7KYFCW</ispsr:Id>
+                </ispsr:Envlp>
+            </ispsr:SplmtryData>
+            <ispsr:SplmtryData>
+                <ispsr:PlcAndNm>/Document/FIToFIPmtStsRpt/TxInfAndSts/PmtRefNb</ispsr:PlcAndNm>
+                <ispsr:Envlp>
+                    <ispsr:Id>210000000003139471430009017</ispsr:Id>
+                </ispsr:Envlp>
+            </ispsr:SplmtryData>
+        </ispsr:TxInfAndSts>
+    </FIToFIPmtStsRpt>
+</Message>

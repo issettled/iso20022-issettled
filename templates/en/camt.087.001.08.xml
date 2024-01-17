@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled" 
+    xmlns:isrtmp="urn:iso:std:iso:20022:tech:xsd:camt.087.001.08" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in IsSettled -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>ISSDINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- IsSettled Identifier in the System—constant -->
+                  <head:Id>issettledmain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>camt.087.001.08</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+    <ReqToModfyPmt>
+        <!-- Message Identification -->
+        <isrtmp:Assgnmt>
+            <!-- Unique Message Identifier -->
+            <isrtmp:Id>{Id}</isrtmp:Id>
+            <!-- Initiating Party -->
+            <isrtmp:Assgnr>
+                <isrtmp:Agt>
+                    <isrtmp:FinInstnId>
+                        <!-- SFI Member Registered BIC code -->
+                        <isrtmp:BICFI>{bicfi}</isrtmp:BICFI>
+                        <isrtmp:Othr>
+                            <!-- SFI Member Identifier in IsSettled -->
+                            <isrtmp:Id>{member_identification}</isrtmp:Id>
+                        </isrtmp:Othr>
+                    </isrtmp:FinInstnId>
+                </isrtmp:Agt>
+            </isrtmp:Assgnr>
+            <!-- Responding Party -->
+            <isrtmp:Assgne>
+                <isrtmp:Agt>
+                    <isrtmp:FinInstnId>
+                        <!-- BFI Member Registered BIC code -->
+                        <isrtmp:BICFI>{bicfi}</isrtmp:BICFI>
+                        <isrtmp:Othr>
+                            <!-- BFI Member Identifier in IsSettled -->
+                            <isrtmp:Id>{member_identification}</isrtmp:Id>
+                        </isrtmp:Othr>
+                    </isrtmp:FinInstnId>
+                </isrtmp:Agt>
+            </isrtmp:Assgne>
+            <!-- Date and Time of Message Creation in ISO 8601 Format -->
+            <isrtmp:CreDtTm>{CreDtTm}</isrtmp:CreDtTm>
+        </isrtmp:Assgnmt>
+        <isrtmp:Undrlyg>
+            <isrtmp:Initn>
+                <isrtmp:OrgnlGrpInf>
+                    <!-- Unique Original Message Identifier -->
+                    <isrtmp:OrgnlMsgId>{OrgnlMsgId}</isrtmp:OrgnlMsgId>
+                    <!-- Original Message Name Identifier -->
+                    <isrtmp:OrgnlMsgNmId>{OrgnlMsgNmId}</isrtmp:OrgnlMsgNmId>
+                </isrtmp:OrgnlGrpInf>
+                <!-- Unique Original Instruction Identifier -->
+                <isrtmp:OrgnlInstrId>{OrgnlInstrId}</isrtmp:OrgnlInstrId>
+                <!-- Original Instructed Amount and Three-letter Currency Code of the Original Message -->
+                <isrtmp:OrgnlInstdAmt Ccy="{Ccy}">{instructed_amount}</isrtmp:OrgnlInstdAmt>
+            </isrtmp:Initn>
+        </isrtmp:Undrlyg>
+        <!-- List of Editable Transaction Details and their New Values -->
+        <isrtmp:Mod>
+            <isrtmp:UltmtCdtr>
+                <!-- Mailing Address -->
+                <isrtmp:PstlAdr>
+                    <!-- Street Name -->
+                    <isrtmp:StrtNm>{StrtNm}</isrtmp:StrtNm>
+                    <!-- Building Number -->
+                    <isrtmp:BldgNb>{BldgNb}</isrtmp:BldgNb>
+                    <!-- Postcode -->
+                    <isrtmp:PstCd>{PstCd}</isrtmp:PstCd>
+                    <!-- Town Name -->
+                    <isrtmp:TwnNm>{TwnNm}</isrtmp:TwnNm>
+                    <!-- Country Name -->
+                    <isrtmp:Ctry>{Ctry}</isrtmp:Ctry>
+                </isrtmp:PstlAdr>
+            </isrtmp:UltmtCdtr>
+        </isrtmp:Mod>
+    </ReqToModfyPmt>
+</Message>

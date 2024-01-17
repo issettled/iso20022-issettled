@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled"
+    xmlns:isroi="urn:iso:std:iso:20022:tech:xsd:camt.029.001.11"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>GRENCHZZ002</head:BICFI>
+                    <head:Othr>
+                        <head:Id>greenbank</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>ISSDINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>issettledmain</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BISSD20220718GRENCHZZ002B1128652249</head:BizMsgIdr>
+        <head:MsgDefIdr>camt.029.001.11</head:MsgDefIdr>
+        <head:CreDt>2022-07-18T13:29:48Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">qm218XfjDUtIK1FJvkimF88GWYuEMM4CfTT5LRZsT1Y=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">PuLcd1WcPVGO3Nu5nWlMz3XtMTn1ByvOb0PRR4Wh1NqRacVpfIakZU0lhnlgK/Bimdl6/0mvddojRJ1p2vaEAg==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TBOJMA3GPIL6XDM3PJIFLXWOLWWVACTRWV2GHMB3HZ5PS7LLZLSGH5GR</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <RsltnOfInvstgtn>
+        <isroi:Assgnmt>
+            <isroi:Id>20220718USDDSA6365289405GRENCHZZ002</isroi:Id>
+            <isroi:Assgnr>
+                <isroi:Agt>
+                    <isroi:FinInstnId>
+                        <isroi:BICFI>GRENCHZZ002</isroi:BICFI>
+                        <isroi:Othr>
+                            <isroi:Id>greenbank</isroi:Id>
+                        </isroi:Othr>
+                    </isroi:FinInstnId>
+                </isroi:Agt>
+            </isroi:Assgnr>
+            <isroi:Assgne>
+                <isroi:Agt>
+                    <isroi:FinInstnId>
+                        <isroi:BICFI>BLUEUSNY001</isroi:BICFI>
+                        <isroi:Othr>
+                            <isroi:Id>bluebank</isroi:Id>
+                        </isroi:Othr>
+                    </isroi:FinInstnId>
+                </isroi:Agt>
+            </isroi:Assgne>
+            <isroi:CreDtTm>2022-07-18T13:29:48</isroi:CreDtTm>
+        </isroi:Assgnmt>
+        <isroi:Sts>
+            <isroi:Conf>RJCR</isroi:Conf>
+        </isroi:Sts>
+        <isroi:CxlDtls>
+            <isroi:OrgnlGrpInfAndSts>
+                <isroi:OrgnlMsgId>20220718USDDSA9153934686BLUEUSNY001</isroi:OrgnlMsgId>
+                <isroi:OrgnlMsgNmId>pacs.008.001.09</isroi:OrgnlMsgNmId>
+            </isroi:OrgnlGrpInfAndSts>
+            <isroi:TxInfAndSts>
+                <isroi:OrgnlInstrId>USDDSA20220718BLUEUSNY001B382477953</isroi:OrgnlInstrId>
+                <isroi:OrgnlTxRef>
+                    <isroi:SttlmInf>
+                        <isroi:SttlmMtd>TDSA</isroi:SttlmMtd>
+                        <isroi:SttlmAcct>
+                            <isroi:Id>
+                                <isroi:Othr>
+                                    <isroi:Id>bluebank</isroi:Id>
+                                </isroi:Othr>
+                            </isroi:Id>
+                            <isroi:Nm>main</isroi:Nm>
+                        </isroi:SttlmAcct>
+                    </isroi:SttlmInf>
+                </isroi:OrgnlTxRef>
+            </isroi:TxInfAndSts>
+        </isroi:CxlDtls>
+    </RsltnOfInvstgtn>
+</Message>

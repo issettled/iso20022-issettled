@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled" 
+    xmlns:isroi="urn:iso:std:iso:20022:tech:xsd:camt.029.001.11" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in IsSettled -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>ISSDINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- IsSettled Identifier in the System—constant -->
+                  <head:Id>issettledmain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>camt.029.001.11</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+   <RsltnOfInvstgtn>
+      <!-- Response Identification -->
+      <isroi:Assgnmt>
+         <!-- Unique Message Identifier -->
+         <isroi:Id>{Id}</isroi:Id>
+         <isroi:Assgnr>
+            <isroi:Agt>
+               <isroi:FinInstnId>
+                  <!-- BFI Member Registered BIC code -->
+                  <isroi:BICFI>{bicfi}</isroi:BICFI>
+                  <isroi:Othr>
+                     <!-- BFI Member Identifier in IsSettled -->
+                     <isroi:Id>{member_identification}</isroi:Id>
+                  </isroi:Othr>
+               </isroi:FinInstnId>
+            </isroi:Agt>
+         </isroi:Assgnr>
+         <isroi:Assgne>
+            <isroi:Agt>
+               <isroi:FinInstnId>
+                  <!-- SFI Member Registered BIC code -->
+                  <isroi:BICFI>{bicfi}</isroi:BICFI>
+                  <isroi:Othr>
+                     <!-- SFI Member Identifier in IsSettled -->
+                     <isroi:Id>{member_identification}</isroi:Id>
+                  </isroi:Othr>
+               </isroi:FinInstnId>
+            </isroi:Agt>
+         </isroi:Assgne>
+         <!-- Date and Time of Message Creation in ISO 8601 Format -->
+         <isroi:CreDtTm>{CreDtTm}</isroi:CreDtTm>
+      </isroi:Assgnmt>
+      <!-- Recall Request Status -->
+      <isroi:Sts>
+         <!-- Recall Request Status Code --> 
+         <isroi:Conf>{Conf}</isroi:Conf>
+      </isroi:Sts>
+      <isroi:CxlDtls>
+         <isroi:OrgnlGrpInfAndSts>
+            <!-- Unique Original Message Identifier -->
+            <isroi:OrgnlMsgId>{OrgnlMsgId}</isroi:OrgnlMsgId>
+            <!-- Original Message Name Identifier -->
+            <isroi:OrgnlMsgNmId>{OrgnlMsgNmId}</isroi:OrgnlMsgNmId>
+         </isroi:OrgnlGrpInfAndSts>
+         <isroi:TxInfAndSts>
+            <!-- Unique Original Instruction Identifier -->
+            <isroi:OrgnlInstrId>{OrgnlInstrId}</isroi:OrgnlInstrId>
+            <isroi:OrgnlTxRef>
+               <isroi:SttlmInf>
+                  <!-- Settlement Method Identifier -->
+                  <isroi:SttlmMtd>{interbank_settlement_method}</isroi:SttlmMtd>
+                  <isroi:SttlmAcct>
+                     <isroi:Id>
+                        <isroi:Othr>
+                           <!-- SFI Member Identifier in IsSettled -->
+                           <isroi:Id>{member_identification}</isroi:Id>
+                        </isroi:Othr>
+                     </isroi:Id>
+                     <!-- SFI Member Digital Account Identifier in IsSettled -->
+                     <isroi:Nm>{account_identification}</isroi:Nm>
+                  </isroi:SttlmAcct>
+               </isroi:SttlmInf>
+            </isroi:OrgnlTxRef>
+         </isroi:TxInfAndSts>
+      </isroi:CxlDtls>
+   </RsltnOfInvstgtn>
+</Message>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Message xmlns="urn:issettled" 
+   xmlns:ispr="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10" 
+   xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in IsSettled -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>ISSDINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- IsSettled Identifier in the System—constant -->
+                  <head:Id>issettledmain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>pacs.004.001.10</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+   <PmtRtr>
+      <ispr:GrpHdr>
+         <!-- Unique Message Identifier -->
+         <ispr:MsgId>{MsgId}</ispr:MsgId>
+         <!-- Date and Time of Message Creation in ISO 8601 Format -->
+         <ispr:CreDtTm>{CreDtTm}</ispr:CreDtTm>
+         <!-- Number of Transactions—constant -->
+         <ispr:NbOfTxs>1</ispr:NbOfTxs>
+         <ispr:SttlmInf>
+            <!-- Settlement Method Identifier -->
+            <ispr:SttlmMtd>{interbank_settlement_method}</ispr:SttlmMtd>
+            <ispr:SttlmAcct>
+               <ispr:Id>
+                  <ispr:Othr>
+                     <!-- BFI Member Identifier in IsSettled -->
+                     <ispr:Id>{member_identification}</ispr:Id>
+                  </ispr:Othr>
+               </ispr:Id>
+               <!-- BFI Member Digital Account Identifier in IsSettled -->
+               <ispr:Nm>{account_identification}</ispr:Nm>
+            </ispr:SttlmAcct>
+         </ispr:SttlmInf>
+         <!-- Instructing Agent -->
+         <ispr:InstgAgt>
+            <ispr:FinInstnId>
+               <!-- BFI Member Registered BIC code -->
+               <ispr:BICFI>{bicfi}</ispr:BICFI>
+               <ispr:Othr>
+                  <!-- BFI Member Identifier in IsSettled -->
+                  <ispr:Id>{member_identification}</ispr:Id>
+               </ispr:Othr>
+            </ispr:FinInstnId>
+         </ispr:InstgAgt>
+         <!-- Instructed Agent -->
+         <ispr:InstdAgt>
+            <ispr:FinInstnId>
+               <!-- SFI Member Registered BIC code -->
+               <ispr:BICFI>{bicfi}</ispr:BICFI>
+               <ispr:Othr>
+                  <!-- SFI Member Identifier in IsSettled -->
+                  <ispr:Id>{member_identification}</ispr:Id>
+               </ispr:Othr>
+            </ispr:FinInstnId>
+         </ispr:InstdAgt>
+      </ispr:GrpHdr>
+      <ispr:OrgnlGrpInf>
+         <!-- Unique Original Message Identifier -->
+         <ispr:OrgnlMsgId>{OrgnlMsgId}</ispr:OrgnlMsgId>
+         <!-- Original Message Name Identifier -->
+         <ispr:OrgnlMsgNmId>{OrgnlMsgNmId}</ispr:OrgnlMsgNmId>
+         <!-- Date and Time of Original Message Creation in ISO 8601 Format -->
+         <ispr:OrgnlCreDtTm>{OrgnlCreDtTm}</ispr:OrgnlCreDtTm>
+         <ispr:RtrRsnInf>
+             <ispr:Rsn>
+               <!-- The Internal Return Reason Identification Code in IsSettled.—“0001” for DSO Return and “0002” for other scenarios. -->
+               <ispr:Cd>{Cd}</ispr:Cd>
+            </ispr:Rsn>
+            <!-- Additional Information -->
+            <ispr:AddtlInf>{AddtlInf}</ispr:AddtlInf>
+          </ispr:RtrRsnInf>
+      </ispr:OrgnlGrpInf>
+      <ispr:TxInf>
+         <!-- Unique Identifier of the Transaction to be Returned -->
+         <ispr:RtrId>{RtrId}</ispr:RtrId>
+         <!-- Unique Original Instruction Identifier -->
+         <ispr:OrgnlInstrId>{OrgnlInstrId}</ispr:OrgnlInstrId>
+         <!-- Unique Original End-To-End Identifier -->
+         <ispr:OrgnlEndToEndId>{OrgnlEndToEndId}</ispr:OrgnlEndToEndId>
+         <!-- Unique Original Transaction Identifier -->
+         <ispr:OrgnlTxId>{OrgnlTxId}</ispr:OrgnlTxId>
+         <!-- Settlement Asset Identifier in IsSettled and the Original Interbank Settlement Amount -->
+         <ispr:OrgnlIntrBkSttlmAmt Ccy="{asset_code_identification}">{interbank_settlement_amount}</ispr:OrgnlIntrBkSttlmAmt>
+         <!-- Settlement Asset Identifier in IsSettled and Returned Interbank Settlement Amount -->
+         <ispr:RtrdIntrBkSttlmAmt Ccy="{asset_code_identification}">{RtrdIntrBkSttlmAmt}</ispr:RtrdIntrBkSttlmAmt> 
+         <!-- Interbank Settlement Date -->
+         <ispr:IntrBkSttlmDt>{IntrBkSttlmDt}</ispr:IntrBkSttlmDt>
+         <!-- Returned Amount and the Three-letter Currency Code -->
+         <ispr:RtrdInstdAmt Ccy="{Ccy}">{instructed_amount}</ispr:RtrdInstdAmt>
+         <!-- The Party that Pays the Fees --> 
+         <ispr:ChrgBr>{ChrgBr}</ispr:ChrgBr>
+         <ispr:ChrgsInf> 
+            <!-- Settlement Asset Identifier in IsSettled and Fee Amount -->
+            <ispr:Amt Ccy="{asset_code_identification}">{Amt}</ispr:Amt>
+            <ispr:Agt>
+               <ispr:FinInstnId>
+                  <!-- Member’s Registered BIC code who Charges a Fee -->
+                  <ispr:BICFI>{bicfi}</ispr:BICFI>
+                  <ispr:Othr>
+                     <!-- Member Identifier in IsSettled, who Charges a Fee -->
+                     <ispr:Id>{member_identification}</ispr:Id>
+                  </ispr:Othr>
+               </ispr:FinInstnId>
+            </ispr:Agt>
+         </ispr:ChrgsInf>
+         <ispr:RtrRsnInf>
+            <ispr:Orgtr>
+               <!-- Payer’s Name -->
+               <ispr:Nm>{Nm}</ispr:Nm>
+            </ispr:Orgtr>
+            <ispr:Rsn>
+               <!-- Return Reason Code -->
+               <ispr:Cd>{Prtry}</ispr:Cd>
+               <!-- Short Reason for Return or Settlement Time outside IsSettled --> 
+               <ispr:Prtry>{Prtry}</ispr:Prtry>
+            </ispr:Rsn>
+            <!-- Detailed Information for Return Reason --> 
+            <ispr:AddtlInf>{AddtlInf}</ispr:AddtlInf>
+         </ispr:RtrRsnInf>
+         <ispr:OrgnlTxRef>
+            <ispr:SttlmInf>
+               <!-- Settlement Method Identifier of the Original Transaction --> 
+               <ispr:SttlmMtd>{interbank_settlement_method}</ispr:SttlmMtd>
+               <ispr:SttlmAcct>
+                  <ispr:Id>
+                     <ispr:Othr>
+                        <!-- SFI Member Identifier in IsSettled -->
+                        <ispr:Id>{member_identification}</ispr:Id>
+                     </ispr:Othr>
+                  </ispr:Id>
+                  <!-- SFI Member Digital Account Identifier in IsSettled  -->
+                  <ispr:Nm>{account_identification}</ispr:Nm>
+               </ispr:SttlmAcct>
+            </ispr:SttlmInf>
+            <ispr:PmtTpInf>
+               <ispr:SvcLvl>
+                  <!-- Issuer Identifier of the Returned Asset in IsSettled -->
+                  <ispr:Prtry>{member_identification}</ispr:Prtry>
+               </ispr:SvcLvl>
+            </ispr:PmtTpInf>
+         </ispr:OrgnlTxRef>
+      </ispr:TxInf>
+   </PmtRtr>
+</Message>

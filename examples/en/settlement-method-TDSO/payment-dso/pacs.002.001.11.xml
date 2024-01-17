@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled"
+    xmlns:ispsr="urn:iso:std:iso:20022:tech:xsd:pacs.002.001.11"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>ISSDINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>issettledmain</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>BLUEUSNY001</head:BICFI>
+                    <head:Othr>
+                        <head:Id>bluebank</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BISSD20220717ISSDINTL07XT0097036156</head:BizMsgIdr>
+        <head:MsgDefIdr>pacs.002.001.11</head:MsgDefIdr>
+        <head:CreDt>2022-07-17T13:29:00Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">0/TvXyG9gsqZObXEWOfIyVKL3VjsDJ6zG5/ZrEHVldc=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">TJflhxPVvZBgIOttRRNZogBuCvApsiX6ByLqV3YzC9JnkykV6oVwVJSL+W0Wj90hitvfipJzxwOvJ0E2YyV6CQ==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TCT4LQXJOYVPQPQX22ANFTDQX6JFXX5TQJEM57MD33JKXG5CEBXZMJYH</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <FIToFIPmtStsRpt>
+        <ispsr:GrpHdr>
+            <ispsr:MsgId>20220717USDDSO9519156420ISSDINTL07X</ispsr:MsgId>
+            <ispsr:CreDtTm>2022-07-17T13:29:00</ispsr:CreDtTm>
+            <ispsr:InstgAgt>
+                <ispsr:FinInstnId>
+                    <ispsr:BICFI>ISSDINTL07X</ispsr:BICFI>
+                </ispsr:FinInstnId>
+            </ispsr:InstgAgt>
+            <ispsr:InstdAgt>
+                <ispsr:FinInstnId>
+                    <ispsr:BICFI>BLUEUSNY001</ispsr:BICFI>
+                </ispsr:FinInstnId>
+            </ispsr:InstdAgt>
+        </ispsr:GrpHdr>
+        <ispsr:TxInfAndSts>
+            <ispsr:OrgnlEndToEndId>db0a130d58c749e9a884a90b2b47e047</ispsr:OrgnlEndToEndId>
+            <ispsr:OrgnlTxId>73b8eda0fcea4a2f934d2c774639e0eb</ispsr:OrgnlTxId>
+            <ispsr:TxSts>RCVD</ispsr:TxSts>
+            <ispsr:StsRsnInf>
+                <ispsr:Rsn>
+                    <ispsr:Cd>0202</ispsr:Cd>
+                    <ispsr:Prtry>Transaction processed by IsSettled and successfully registered in the Distributed ledger.</ispsr:Prtry>
+                </ispsr:Rsn>
+            </ispsr:StsRsnInf>
+        </ispsr:TxInfAndSts>
+    </FIToFIPmtStsRpt>
+</Message>

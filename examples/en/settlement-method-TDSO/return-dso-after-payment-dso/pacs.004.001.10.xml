@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled"
+    xmlns:ispr="urn:iso:std:iso:20022:tech:xsd:pacs.004.001.10"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>GRENCHZZ002</head:BICFI>
+                    <head:Othr>
+                        <head:Id>greenbank</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>ISSDINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>issettledmain</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BISSD20220719GRENCHZZ002B7173301669</head:BizMsgIdr>
+        <head:MsgDefIdr>pacs.004.001.10</head:MsgDefIdr>
+        <head:CreDt>2022-07-19T10:19:34Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">GQFk9iRVE7ww7NOTLG8eTEe9ZFj/S6gcXxIbxGUO9kw=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">Txo6QD9RqtzUKYkAWPfSMCDbhDunoASTqAXMC17OhLs6YNuI2RHDZc1QnUezYyK6OcPJpkDhMtwugiPNUy8pCA==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TA3T7AQ74BRI2XQEJKUD2UNPGXRTOPJH6SQUI57GUVPWNE72Z5R3NJVU</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <PmtRtr>
+        <ispr:GrpHdr>
+            <ispr:MsgId>20220719USDDSO0388509871GRENCHZZ002</ispr:MsgId>
+            <ispr:CreDtTm>2022-07-19T10:19:34</ispr:CreDtTm>
+            <ispr:NbOfTxs>1</ispr:NbOfTxs>
+            <ispr:SttlmInf>
+                <ispr:SttlmMtd>TDSO</ispr:SttlmMtd>
+                <ispr:SttlmAcct>
+                    <ispr:Id>
+                        <ispr:Othr>
+                            <ispr:Id>greenbank</ispr:Id>
+                        </ispr:Othr>
+                    </ispr:Id>
+                    <ispr:Nm>emission</ispr:Nm>
+                </ispr:SttlmAcct>
+            </ispr:SttlmInf>
+            <ispr:InstgAgt>
+                <ispr:FinInstnId>
+                    <ispr:BICFI>GRENCHZZ002</ispr:BICFI>
+                    <ispr:Othr>
+                        <ispr:Id>greenbank</ispr:Id>
+                    </ispr:Othr>
+                </ispr:FinInstnId>
+            </ispr:InstgAgt>
+            <ispr:InstdAgt>
+                <ispr:FinInstnId>
+                    <ispr:BICFI>BLUEUSNY001</ispr:BICFI>
+                    <ispr:Othr>
+                        <ispr:Id>bluebank</ispr:Id>
+                    </ispr:Othr>
+                </ispr:FinInstnId>
+            </ispr:InstdAgt>
+        </ispr:GrpHdr>
+        <ispr:OrgnlGrpInf>
+            <ispr:OrgnlMsgId>20220717USDDSO0123456789BLUEUSNY001</ispr:OrgnlMsgId>
+            <ispr:OrgnlMsgNmId>pacs.008.001.09</ispr:OrgnlMsgNmId>
+            <ispr:OrgnlCreDtTm>2022-07-17T13:22:01</ispr:OrgnlCreDtTm>
+            <ispr:RtrRsnInf>
+                <ispr:Rsn>
+                    <ispr:Cd>0001</ispr:Cd>
+                </ispr:Rsn>
+                <ispr:AddtlInf>Payment final settlement has been completed</ispr:AddtlInf>
+            </ispr:RtrRsnInf>
+        </ispr:OrgnlGrpInf>
+        <ispr:TxInf>
+            <ispr:RtrId>20220719USDDSO0388509871GRENCHZZ002</ispr:RtrId>
+            <ispr:OrgnlInstrId>USDDSO20220717BLUEUSNY001B123456789</ispr:OrgnlInstrId>
+            <ispr:OrgnlEndToEndId>db0a130d58c749e9a884a90b2b47e047</ispr:OrgnlEndToEndId>
+            <ispr:OrgnlTxId>73b8eda0fcea4a2f934d2c774639e0eb</ispr:OrgnlTxId>
+            <ispr:OrgnlIntrBkSttlmAmt Ccy="USDDSO">50000</ispr:OrgnlIntrBkSttlmAmt>
+            <ispr:RtrdIntrBkSttlmAmt Ccy="USDDSO">50000</ispr:RtrdIntrBkSttlmAmt>
+            <ispr:IntrBkSttlmDt>2022-07-17</ispr:IntrBkSttlmDt>
+            <ispr:RtrdInstdAmt Ccy="CHF">48460</ispr:RtrdInstdAmt>
+            <ispr:ChrgBr>CRED</ispr:ChrgBr>
+            <ispr:ChrgsInf>
+                <ispr:Amt Ccy="USDDSO">0</ispr:Amt>
+                <ispr:Agt>
+                    <ispr:FinInstnId>
+                        <ispr:BICFI>GRENCHZZ002</ispr:BICFI>
+                        <ispr:Othr>
+                            <ispr:Id>greenbank</ispr:Id>
+                        </ispr:Othr>
+                    </ispr:FinInstnId>
+                </ispr:Agt>
+            </ispr:ChrgsInf>
+            <ispr:RtrRsnInf>
+                <ispr:Orgtr>
+                    <ispr:Nm>COMPANY AAA INC</ispr:Nm>
+                </ispr:Orgtr>
+                <ispr:Rsn>
+                    <ispr:Cd>NARR</ispr:Cd>
+                    <ispr:Prtry>2022-07-17T12:56:00</ispr:Prtry>
+                </ispr:Rsn>
+                <ispr:AddtlInf>RETURN AFTER ACCEPTED TRANSACTION SETTLEMENT NOTIFICATION</ispr:AddtlInf>
+            </ispr:RtrRsnInf>
+            <ispr:OrgnlTxRef>
+                <ispr:SttlmInf>
+                    <ispr:SttlmMtd>TDSO</ispr:SttlmMtd>
+                    <ispr:SttlmAcct>
+                        <ispr:Id>
+                            <ispr:Othr>
+                                <ispr:Id>bluebank</ispr:Id>
+                            </ispr:Othr>
+                        </ispr:Id>
+                        <ispr:Nm>emission</ispr:Nm>
+                    </ispr:SttlmAcct>
+                </ispr:SttlmInf>
+                <ispr:PmtTpInf>
+                    <ispr:SvcLvl>
+                        <ispr:Prtry>bluebank</ispr:Prtry>
+                    </ispr:SvcLvl>
+                </ispr:PmtTpInf>
+            </ispr:OrgnlTxRef>
+        </ispr:TxInf>
+    </PmtRtr>
+</Message>

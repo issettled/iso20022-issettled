@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled" 
+    xmlns:ispcr="urn:iso:std:iso:20022:tech:xsd:camt.056.001.10" 
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+   <AppHdr>
+      <head:Fr>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Registered BIC Code of the Message Sender -->
+               <head:BICFI>{bicfi}</head:BICFI>
+               <head:Othr>
+                  <!-- Message Sender Member Identifier in IsSettled -->
+                  <head:Id>{member_identification}</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:Fr>
+      <head:To>
+         <head:FIId>
+            <head:FinInstnId>
+               <!-- Messaging Point Identifier—constant -->
+               <head:BICFI>ISSDINTL07X</head:BICFI>
+               <head:Othr>
+                  <!-- IsSettled Identifier in the System—constant -->
+                  <head:Id>issettledmain</head:Id>
+                  <!-- Issuer -->
+                  <head:Issr>ISSD</head:Issr>
+               </head:Othr>
+            </head:FinInstnId>
+         </head:FIId>
+      </head:To>
+      <!-- Unique Business Message Identifier -->
+      <head:BizMsgIdr>{BizMsgIdr}</head:BizMsgIdr>
+      <!-- Message Identifier—constant -->
+      <head:MsgDefIdr>camt.056.001.10</head:MsgDefIdr>
+      <!-- Date and Time of Business Message Creation in ISO 8601 Format -->
+      <head:CreDt>{CreDt}</head:CreDt>
+   </AppHdr>
+   <FIToFIPmtCxlReq>
+   <!-- Request Identification -->
+      <ispcr:Assgnmt>
+         <!-- Unique Message Identifier -->
+         <ispcr:Id>{Id}</ispcr:Id>
+         <!-- Initiating Party -->
+         <ispcr:Assgnr>
+            <ispcr:Agt>
+               <ispcr:FinInstnId>
+                  <!-- SFI Member Registered BIC code -->
+                  <ispcr:BICFI>{bicfi}</ispcr:BICFI>
+                  <ispcr:Othr>
+                     <!-- SFI Member Identifier in IsSettled -->
+                     <ispcr:Id>{member_identification}</ispcr:Id>
+                  </ispcr:Othr>
+               </ispcr:FinInstnId>
+            </ispcr:Agt>
+         </ispcr:Assgnr> 
+         <!-- Responding Party -->
+         <ispcr:Assgne>
+            <ispcr:Agt>
+               <ispcr:FinInstnId>
+                  <!-- BFI Member Registered BIC code -->
+                  <ispcr:BICFI>{bicfi}</ispcr:BICFI>
+                  <ispcr:Othr>
+                     <!-- BFI Member Identifier in IsSettled -->
+                     <ispcr:Id>{member_identification}</ispcr:Id>
+                  </ispcr:Othr>
+               </ispcr:FinInstnId>
+            </ispcr:Agt>
+         </ispcr:Assgne>
+         <!-- Date and Time of Message Creation in ISO 8601 Format -->
+         <ispcr:CreDtTm>{CreDtTm}</ispcr:CreDtTm>
+      </ispcr:Assgnmt>
+      <ispcr:Case>
+         <!-- Unique Message Identifier (case) -->
+         <ispcr:Id>{Id}</ispcr:Id>
+         <ispcr:Cretr>
+            <ispcr:Agt>
+               <ispcr:FinInstnId>
+                  <!-- SFI Member Registered BIC code -->
+                  <ispcr:BICFI>{bicfi}</ispcr:BICFI>
+                  <ispcr:Othr>
+                      <!-- SFI Member Identifier in IsSettled -->
+                     <ispcr:Id>{member_identification}</ispcr:Id>
+                  </ispcr:Othr>
+               </ispcr:FinInstnId>
+            </ispcr:Agt>
+         </ispcr:Cretr>
+      </ispcr:Case>
+      <ispcr:Undrlyg>
+         <ispcr:OrgnlGrpInfAndCxl>
+            <!-- Unique Original Message Identifier -->
+            <ispcr:OrgnlMsgId>{OrgnlMsgId}</ispcr:OrgnlMsgId>
+            <!-- Original Message Name Identifier -->
+            <ispcr:OrgnlMsgNmId>{OrgnlMsgNmId}</ispcr:OrgnlMsgNmId>
+         </ispcr:OrgnlGrpInfAndCxl>
+         <ispcr:TxInf>
+            <!-- Unique Original Instruction Identifier -->
+            <ispcr:OrgnlInstrId>{OrgnlInstrId}</ispcr:OrgnlInstrId>
+            <!-- Unique Original End-To-End Identifier -->
+            <ispcr:OrgnlEndToEndId>{OrgnlEndToEndId}</ispcr:OrgnlEndToEndId>
+            <!-- Unique Original Transaction Identifier -->
+            <ispcr:OrgnlTxId>{OrgnlTxId}</ispcr:OrgnlTxId>
+            <!-- Settlement Asset Identifier in IsSettled and the Original Interbank Settlement Amount -->
+            <ispcr:OrgnlIntrBkSttlmAmt Ccy="{asset_code_identification}">{interbank_settlement_amount}</ispcr:OrgnlIntrBkSttlmAmt>
+            <!-- Interbank Settlement Date -->
+            <ispcr:OrgnlIntrBkSttlmDt>{OrgnlIntrBkSttlmDt}</ispcr:OrgnlIntrBkSttlmDt>
+            <ispcr:CxlRsnInf>
+               <ispcr:Rsn>
+                  <!-- Reason Code -->
+                  <ispcr:Cd>{Cd}</ispcr:Cd>
+               </ispcr:Rsn>
+               <!-- Reason for the Payment Cancelation Request -->
+               <ispcr:AddtlInf>{AddtlInf}</ispcr:AddtlInf>
+            </ispcr:CxlRsnInf>
+            <ispcr:OrgnlTxRef>
+               <ispcr:SttlmInf>
+                  <!-- Settlement Method Identifier -->
+                  <ispcr:SttlmMtd>{interbank_settlement_method}</ispcr:SttlmMtd>
+                  <ispcr:SttlmAcct>
+                     <ispcr:Id>
+                        <ispcr:Othr>
+                           <!-- SFI Member Identifier in IsSettled -->
+                           <ispcr:Id>{member_identification}</ispcr:Id>
+                        </ispcr:Othr>
+                     </ispcr:Id>
+                     <!-- SFI Member Digital Account Identifier in IsSettled -->
+                     <ispcr:Nm>{account_identification}</ispcr:Nm>
+                  </ispcr:SttlmAcct>
+               </ispcr:SttlmInf>
+            </ispcr:OrgnlTxRef>
+         </ispcr:TxInf>
+      </ispcr:Undrlyg>
+   </FIToFIPmtCxlReq>
+</Message>

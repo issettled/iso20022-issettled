@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled"
+    xmlns:isrtmp="urn:iso:std:iso:20022:tech:xsd:camt.087.001.08"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>BLUEUSNY001</head:BICFI>
+                    <head:Othr>
+                        <head:Id>bluebank</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>ISSDINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>issettledmain</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BISSD20220717BLUEUSNY001B4729473423</head:BizMsgIdr>
+        <head:MsgDefIdr>camt.087.001.08</head:MsgDefIdr>
+        <head:CreDt>2022-07-17T13:34:50Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">azSlcoEpzgtReus+bYau+oSGIpsRKfpz5SAF04SFf8o=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">Ja2vtIwgFsmbKX9nGe46J6ebEn9H898Gz4tcQCqWLgekO2h16FwEKclKGa5TIo6wW6njQJU+dnrzaQvHq8DXCg==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TBGSR67NVA4KH3XBODB4P6JQ6AEZIB73OH2WTBPMAHS7D4EFCKFS6NXN</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <ReqToModfyPmt>
+        <isrtmp:Assgnmt>
+            <isrtmp:Id>20220717USDDSO6590241279BLUEUSNY001</isrtmp:Id>
+            <isrtmp:Assgnr>
+                <isrtmp:Agt>
+                    <isrtmp:FinInstnId>
+                        <isrtmp:BICFI>BLUEUSNY001</isrtmp:BICFI>
+                        <isrtmp:Othr>
+                            <isrtmp:Id>bluebank</isrtmp:Id>
+                        </isrtmp:Othr>
+                    </isrtmp:FinInstnId>
+                </isrtmp:Agt>
+            </isrtmp:Assgnr>
+            <isrtmp:Assgne>
+                <isrtmp:Agt>
+                    <isrtmp:FinInstnId>
+                        <isrtmp:BICFI>GRENCHZZ002</isrtmp:BICFI>
+                        <isrtmp:Othr>
+                            <isrtmp:Id>greenbank</isrtmp:Id>
+                        </isrtmp:Othr>
+                    </isrtmp:FinInstnId>
+                </isrtmp:Agt>
+            </isrtmp:Assgne>
+            <isrtmp:CreDtTm>2022-07-17T13:34:50</isrtmp:CreDtTm>
+        </isrtmp:Assgnmt>
+        <isrtmp:Undrlyg>
+            <isrtmp:Initn>
+                <isrtmp:OrgnlGrpInf>
+                    <isrtmp:OrgnlMsgId>20220717USDDSO0123456789BLUEUSNY001</isrtmp:OrgnlMsgId>
+                    <isrtmp:OrgnlMsgNmId>pacs.008.001.09</isrtmp:OrgnlMsgNmId>
+                </isrtmp:OrgnlGrpInf>
+                <isrtmp:OrgnlInstrId>USDDSO20220717BLUEUSNY001B123456789</isrtmp:OrgnlInstrId>
+                <isrtmp:OrgnlInstdAmt Ccy="CHF">48460</isrtmp:OrgnlInstdAmt>
+            </isrtmp:Initn>
+        </isrtmp:Undrlyg>
+        <isrtmp:Mod>
+            <isrtmp:UltmtCdtr>
+                <isrtmp:PstlAdr>
+                    <isrtmp:BldgNb>56</isrtmp:BldgNb>
+                </isrtmp:PstlAdr>
+            </isrtmp:UltmtCdtr>
+        </isrtmp:Mod>
+    </ReqToModfyPmt>
+</Message>

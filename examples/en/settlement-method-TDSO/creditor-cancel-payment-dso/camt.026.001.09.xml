@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message xmlns="urn:issettled"
+    xmlns:isuta="urn:iso:std:iso:20022:tech:xsd:camt.026.001.09"
+    xmlns:head="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+    <AppHdr>
+        <head:Fr>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>GRENCHZZ002</head:BICFI>
+                    <head:Othr>
+                        <head:Id>greenbank</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:Fr>
+        <head:To>
+            <head:FIId>
+                <head:FinInstnId>
+                    <head:BICFI>ISSDINTL07X</head:BICFI>
+                    <head:Othr>
+                        <head:Id>issettledmain</head:Id>
+                        <head:Issr>ISSD</head:Issr>
+                    </head:Othr>
+                </head:FinInstnId>
+            </head:FIId>
+        </head:To>
+        <head:BizMsgIdr>BISSD20220717GRENCHZZ002B2197677962</head:BizMsgIdr>
+        <head:MsgDefIdr>camt.026.001.09</head:MsgDefIdr>
+        <head:CreDt>2022-07-17T13:28:34Z</head:CreDt>
+        <Sgntr xmlns="urn:iso:std:iso:20022:tech:xsd:head.001.001.03">
+            <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <SignedInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <CanonicalizationMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                    <SignatureMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2009/xmldsig11#rsa-sha256" />
+                    <Reference xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <Transforms xmlns="http://www.w3.org/2000/09/xmldsig#">
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+                            <Transform xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" />
+                        </Transforms>
+                        <DigestMethod xmlns="http://www.w3.org/2000/09/xmldsig#" Algorithm="http://www.w3.org/2001/04/xmlenc#sha256" />
+                        <DigestValue xmlns="http://www.w3.org/2000/09/xmldsig#">eU+xowcatqUETu+7lwvHWi7bh1oSS0sLeb4wQJ+99Dw=</DigestValue>
+                    </Reference>
+                </SignedInfo>
+                <SignatureValue xmlns="http://www.w3.org/2000/09/xmldsig#">x5qOWHhlKnVnPUMC3McvsgmdqtXhXgDuW/XEd03ZZoZqTiCAHvTW5c5sZSRcevl/Sx6Oz+JSnOV4auuOnvE/BQ==</SignatureValue>
+                <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <X509Data xmlns="http://www.w3.org/2000/09/xmldsig#">
+                        <X509Certificate xmlns="http://www.w3.org/2000/09/xmldsig#">TA3T7AQ74BRI2XQEJKUD2UNPGXRTOPJH6SQUI57GUVPWNE72Z5R3NJVU</X509Certificate>
+                    </X509Data>
+                </KeyInfo>
+            </Signature>
+        </Sgntr>
+    </AppHdr>
+    <UblToApply>
+        <isuta:Assgnmt>
+            <isuta:Id>20220717USDDSO8260496440GRENCHZZ002</isuta:Id>
+            <isuta:Assgnr>
+                <isuta:Agt>
+                    <isuta:FinInstnId>
+                        <isuta:BICFI>GRENCHZZ002</isuta:BICFI>
+                        <isuta:Othr>
+                            <isuta:Id>greenbank</isuta:Id>
+                        </isuta:Othr>
+                    </isuta:FinInstnId>
+                </isuta:Agt>
+            </isuta:Assgnr>
+            <isuta:Assgne>
+                <isuta:Agt>
+                    <isuta:FinInstnId>
+                        <isuta:BICFI>BLUEUSNY001</isuta:BICFI>
+                        <isuta:Othr>
+                            <isuta:Id>bluebank</isuta:Id>
+                        </isuta:Othr>
+                    </isuta:FinInstnId>
+                </isuta:Agt>
+            </isuta:Assgne>
+            <isuta:CreDtTm>2022-07-17T13:28:34</isuta:CreDtTm>
+        </isuta:Assgnmt>
+        <isuta:Undrlyg>
+            <isuta:Initn>
+                <isuta:OrgnlInstrId>USDDSO20220717BLUEUSNY001B123456789</isuta:OrgnlInstrId>
+                <isuta:OrgnlInstdAmt Ccy="CHF">48460</isuta:OrgnlInstdAmt>
+            </isuta:Initn>
+        </isuta:Undrlyg>
+        <isuta:Justfn>
+            <isuta:MssngOrIncrrctInf>
+                <isuta:IncrrctInf>
+                    <isuta:Cd>IN39</isuta:Cd>
+                </isuta:IncrrctInf>
+            </isuta:MssngOrIncrrctInf>
+        </isuta:Justfn>
+    </UblToApply>
+</Message>
